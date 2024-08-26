@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19-Ago-2024 às 13:42
+-- Tempo de geração: 26-Ago-2024 às 14:06
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.0.25
 
@@ -34,23 +34,12 @@ CREATE TABLE `aluguel` (
   `datafim` date NOT NULL,
   `datainicio` date NOT NULL,
   `descricao` varchar(255) NOT NULL,
-  `valor` float(4,2) NOT NULL,
+  `valor` float(7,2) NOT NULL,
   `vencimento` date NOT NULL,
   `idinquilino` int(11) DEFAULT NULL,
   `idcorretor` int(11) DEFAULT NULL,
   `idimovel` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Extraindo dados da tabela `aluguel`
---
-
-INSERT INTO `aluguel` (`codaluguel`, `datafim`, `datainicio`, `descricao`, `valor`, `vencimento`, `idinquilino`, `idcorretor`, `idimovel`) VALUES
-(1, '2024-12-31', '2024-01-01', 'Aluguel de apartamento no centro', 99.99, '2024-05-01', 1, 1, 1),
-(2, '2024-12-31', '2024-02-01', 'Aluguel de casa com piscina', 99.99, '2024-06-01', 2, 2, 2),
-(3, '2024-12-31', '2024-03-01', 'Aluguel de cobertura duplex', 99.99, '2024-07-01', 3, 3, 3),
-(4, '2024-12-31', '2024-04-01', 'Aluguel de sala comercial', 99.99, '2024-08-01', 4, 4, 4),
-(5, '2024-12-31', '2024-05-01', 'Aluguel de kitnet próximo à universidade', 99.99, '2024-09-01', 5, 5, 5);
 
 -- --------------------------------------------------------
 
@@ -70,11 +59,16 @@ CREATE TABLE `corretor` (
 --
 
 INSERT INTO `corretor` (`idcorretor`, `email`, `telefone`, `nome`) VALUES
-(1, 'joao.silva@example.com', '+55 11 98765-4321', 'João Silva'),
-(2, 'maria.souza@example.com', '+55 21 91234-5678', 'Maria Souza'),
-(3, 'pedro.lima@example.com', '+55 31 99876-5432', 'Pedro Lima'),
-(4, 'ana.carvalho@example.com', '+55 41 95555-1111', 'Ana Carvalho'),
-(5, 'luan.pereira@example.com', '+55 51 94444-2222', 'Luan Pereira');
+(6, 'jorge.souza@example.com', '11 98765-4321', 'Jorge Souza'),
+(7, 'ana.santos@example.com', '21 99876-5432', 'Ana Santos'),
+(8, 'carlos.pereira@example.com', '31 97654-3210', 'Carlos Pereira'),
+(9, 'lucas.silva@example.com', '41 96543-2109', 'Lucas Silva'),
+(10, 'maria.oliveira@example.com', '51 95432-1098', 'Maria Oliveira'),
+(11, 'pedro.almeida@example.com', '61 94321-0987', 'Pedro Almeida'),
+(12, 'beatriz.costa@example.com', '71 93210-9876', 'Beatriz Costa'),
+(13, 'roberto.lima@example.com', '81 92109-8765', 'Roberto Lima'),
+(14, 'fernanda.rocha@example.com', '91 91098-7654', 'Fernanda Rocha'),
+(15, 'juliana.martins@example.com', '11 89987-6543', 'Juliana Martins');
 
 -- --------------------------------------------------------
 
@@ -98,11 +92,16 @@ CREATE TABLE `endereco` (
 --
 
 INSERT INTO `endereco` (`idendereco`, `cidade`, `cep`, `numero`, `rua`, `bairro`, `complemento`, `estado`) VALUES
-(1, 'São Paulo', '01000-000', 123, 'Avenida Paulista', 'Centro', 'Apto 45', 'SP'),
-(2, 'Rio de Janeiro', '20000-000', 456, 'Praia de Copacabana', 'Copacabana', 'Bloco A', 'RJ'),
-(3, 'Belo Horizonte', '30000-000', 789, 'Rua dos Tupinambás', 'Centro', 'Sala 101', 'MG'),
-(4, 'Curitiba', '80000-000', 321, 'Rua XV de Novembro', 'Centro', 'Loja 12', 'PR'),
-(5, 'Porto Alegre', '90000-000', 654, 'Avenida Ipiranga', 'Cidade Baixa', 'Casa 3', 'RS');
+(16, 'São Paulo', '01000-000', 123, 'Rua A', 'Centro', 'Apto 101', 'SP'),
+(17, 'Rio de Janeiro', '20000-000', 456, 'Avenida B', 'Copacabana', 'Sala 202', 'RJ'),
+(18, 'Belo Horizonte', '30100-000', 789, 'Rua C', 'Savassi', 'Andar 3', 'MG'),
+(19, 'Curitiba', '80000-000', 321, 'Rua D', 'Batel', 'Cobertura 4', 'PR'),
+(20, 'Porto Alegre', '90000-000', 654, 'Avenida E', 'Moinhos de Vento', 'Loja 5', 'RS'),
+(21, 'Salvador', '40000-000', 987, 'Rua F', 'Barra', 'Térreo', 'BA'),
+(22, 'Fortaleza', '60000-000', 135, 'Avenida G', 'Aldeota', 'Apto 7', 'CE'),
+(23, 'Recife', '50000-000', 246, 'Rua H', 'Boa Viagem', 'Conjunto 8', 'PE'),
+(24, 'Brasília', '70000-000', 357, 'Avenida I', 'Asa Sul', 'Bloco B', 'DF'),
+(25, 'Manaus', '69000-000', 468, 'Rua J', 'Centro', 'Sala 10', 'AM');
 
 -- --------------------------------------------------------
 
@@ -126,11 +125,16 @@ CREATE TABLE `fiador` (
 --
 
 INSERT INTO `fiador` (`idfiador`, `email`, `telefone`, `rg`, `cpf`, `nome`, `idendereco`, `idinquilino`) VALUES
-(1, 'jose.santos@example.com', '+55 11 97654-3210', 'MG1234567', '123.456.789-00', 'José Santos', 3, 1),
-(2, 'luana.oliveira@example.com', '+55 21 98765-4321', 'RJ2345678', '234.567.890-11', 'Luana Oliveira', 2, 2),
-(3, 'marcos.pereira@example.com', '+55 31 99876-5432', 'MG3456789', '345.678.901-22', 'Marcos Pereira', 4, 3),
-(4, 'beatriz.silva@example.com', '+55 41 95555-3333', 'PR4567890', '456.789.012-33', 'Beatriz Silva', 1, 4),
-(5, 'carla.souza@example.com', '+55 51 94444-4444', 'RS5678901', '567.890.123-44', 'Carla Souza', 5, 5);
+(76, 'joao.silva@example.com', '11 98765-4321', '123456789', '123.456.789-05', 'João Silva', 16, 26),
+(77, 'maria.oliveira@example.com', '21 99876-5432', '987654321', '987.654.321-05', 'Maria Oliveira', 17, 27),
+(78, 'pedro.almeida@example.com', '31 97654-3210', '112233445', '321.654.987-05', 'Pedro Almeida', 18, 28),
+(79, 'ana.santos@example.com', '41 96543-2109', '556677889', '654.321.987-05', 'Ana Santos', 19, 29),
+(80, 'carlos.pereira@example.com', '51 95432-1098', '667788990', '987.321.654-05', 'Carlos Pereira', 20, 30),
+(81, 'julia.martins@example.com', '61 94321-0987', '778899001', '321.987.654-09', 'Júlia Martins', 21, 31),
+(82, 'beatriz.costa@example.com', '71 93210-9876', '889900112', '654.987.321-06', 'Beatriz Costa', 22, 32),
+(83, 'ricardo.lima@example.com', '81 92109-8765', '990011223', '987.654.321-07', 'Ricardo Lima', 23, 33),
+(84, 'mariana.rocha@example.com', '91 91098-7654', '100112233', '321.654.987-09', 'Mariana Rocha', 24, 34),
+(85, 'tiago.fernandes@example.com', '11 89987-6543', '211223344', '654.987.321-09', 'Tiago Fernandes', 25, 35);
 
 -- --------------------------------------------------------
 
@@ -148,22 +152,11 @@ CREATE TABLE `imovel` (
   `garagem` bit(1) NOT NULL,
   `lavanderia` bit(1) NOT NULL,
   `piscina` bit(1) NOT NULL,
-  `comodos` bit(1) NOT NULL,
+  `comodos` int(1) NOT NULL,
   `idmidida` int(11) DEFAULT NULL,
   `idproprietario` int(11) DEFAULT NULL,
   `idendereco` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Extraindo dados da tabela `imovel`
---
-
-INSERT INTO `imovel` (`idimovel`, `disponivel`, `area`, `suite`, `nbanheiros`, `tipo`, `garagem`, `lavanderia`, `piscina`, `comodos`, `idmidida`, `idproprietario`, `idendereco`) VALUES
-(1, b'1', '1', b'1', 3, 'Apartamento', b'1', b'1', b'0', b'1', 1, 1, 1),
-(2, b'1', '1', b'0', 2, 'Casa', b'1', b'0', b'1', b'1', 2, 2, 2),
-(3, b'0', '1', b'1', 4, 'Cobertura', b'1', b'1', b'1', b'1', 3, 3, 3),
-(4, b'1', '0', b'0', 1, 'Sala Comercial', b'0', b'0', b'0', b'1', 4, 4, 4),
-(5, b'1', '1', b'1', 2, 'Kitnet', b'0', b'1', b'0', b'1', 5, 5, 5);
 
 -- --------------------------------------------------------
 
@@ -185,11 +178,16 @@ CREATE TABLE `inquilino` (
 --
 
 INSERT INTO `inquilino` (`idinquilino`, `rg`, `telefone`, `nome`, `email`, `cpf`) VALUES
-(1, 'MG1234567', '(31) 99999-0001', 'Ana Silva', 'ana.silva@example.com', '123.456.789-00'),
-(2, 'SP2345678', '(11) 98888-0002', 'Bruno Oliveira', 'bruno.oliveira@example.com', '234.567.890-11'),
-(3, 'RJ3456789', '(21) 97777-0003', 'Clara Souza', 'clara.souza@example.com', '345.678.901-22'),
-(4, 'RS4567890', '(51) 96666-0004', 'Daniel Costa', 'daniel.costa@example.com', '456.789.012-33'),
-(5, 'BA5678901', '(71) 95555-0005', 'Elisa Martins', 'elisa.martins@example.com', '567.890.123-44');
+(26, '123456789', '11 98765-4321', 'Maria Oliveira', 'maria.oliveira@example.com', '123.456.789-09'),
+(27, '987654321', '21 99876-5432', 'Carlos Pereira', 'carlos.pereira@example.com', '987.654.321-05'),
+(28, '112233445', '31 97654-3210', 'Fernanda Costa', 'fernanda.costa@example.com', '321.654.987-05'),
+(29, '556677889', '41 96543-2109', 'Roberto Lima', 'roberto.lima@example.com', '654.321.987-05'),
+(30, '667788990', '51 95432-1098', 'Beatriz Silva', 'beatriz.silva@example.com', '987.321.654-05'),
+(31, '778899001', '61 94321-0987', 'Felipe Almeida', 'felipe.almeida@example.com', '321.987.654-05'),
+(32, '889900112', '71 93210-9876', 'Juliana Santos', 'juliana.santos@example.com', '654.987.321-04'),
+(33, '990011223', '81 92109-8765', 'Daniel Costa', 'daniel.costa@example.com', '987.654.321-00'),
+(34, '100112233', '91 91098-7654', 'Isabela Silva', 'isabela.silva@example.com', '321.654.987-09'),
+(35, '211223344', '11 89987-6543', 'Gabriel Santos', 'gabriel.santos@example.com', '654.987.321-05');
 
 -- --------------------------------------------------------
 
@@ -207,11 +205,16 @@ CREATE TABLE `midias` (
 --
 
 INSERT INTO `midias` (`idmidida`, `midia`) VALUES
-(1, 'https://example.com/video1.mp4'),
-(2, 'https://example.com/audio1.mp3'),
-(3, 'https://example.com/image1.jpg'),
-(4, 'https://example.com/document1.pdf'),
-(5, 'https://example.com/video2.mp4');
+(6, 'Livro'),
+(7, 'Revista'),
+(8, 'Jornal'),
+(9, 'DVD'),
+(10, 'CD'),
+(11, 'Blu-ray'),
+(12, 'Cassete'),
+(13, 'Vinil'),
+(14, 'E-book'),
+(15, 'Podcast');
 
 -- --------------------------------------------------------
 
@@ -235,11 +238,16 @@ CREATE TABLE `proprietario` (
 --
 
 INSERT INTO `proprietario` (`idproprietario`, `email`, `telefone`, `nome`, `pix`, `banco`, `agencia`, `idendereco`) VALUES
-(1, 'ana.martins@example.com', '+55 11 91234-5678', 'Ana Martins', 'ana.martins@pix.com', 'Banco do Brasil', '001', 1),
-(2, 'ricardo.souza@example.com', '+55 21 93456-7890', 'Ricardo Souza', 'ricardo.souza@pix.com', 'Itaú', '034', 2),
-(3, 'lucas.costa@example.com', '+55 31 97654-3210', 'Lucas Costa', 'lucas.costa@pix.com', 'Santander', '033', 3),
-(4, 'maria.oliveira@example.com', '+55 41 98765-4321', 'Maria Oliveira', 'maria.oliveira@pix.com', 'Caixa Econômica Federal', '104', 4),
-(5, 'beatriz.lima@example.com', '+55 51 94567-8901', 'Beatriz Lima', 'beatriz.lima@pix.com', 'Bradesco', '237', 5);
+(26, 'joao.silva@example.com', '11 98765-4321', 'João Silva', 'pixjoao123', 'Banco do Brasil', '1234', 16),
+(27, 'maria.oliveira@example.com', '21 99876-5432', 'Maria Oliveira', 'pixmaria456', 'Itaú', '5678', 17),
+(28, 'pedro.almeida@example.com', '31 97654-3210', 'Pedro Almeida', 'pixpedro789', 'Santander', '9101', 18),
+(29, 'ana.santos@example.com', '41 96543-2109', 'Ana Santos', 'pixana234', 'Caixa Econômica', '1122', 19),
+(30, 'carlos.pereira@example.com', '51 95432-1098', 'Carlos Pereira', 'pixcarlos567', 'Bradesco', '3344', 20),
+(31, 'julia.martins@example.com', '61 94321-0987', 'Júlia Martins', 'pixjulia678', 'HSBC', '5566', 21),
+(32, 'beatriz.costa@example.com', '71 93210-9876', 'Beatriz Costa', 'pixbeatriz789', 'Banrisul', '7788', 22),
+(33, 'ricardo.lima@example.com', '81 92109-8765', 'Ricardo Lima', 'pixricardo890', 'Sicredi', '9900', 23),
+(34, 'mariana.rocha@example.com', '91 91098-7654', 'Mariana Rocha', 'pixmariana901', 'Banco do Nordeste', '1234', 24),
+(35, 'tiago.fernandes@example.com', '11 89987-6543', 'Tiago Fernandes', 'pixtiago012', 'Banco da Amazônia', '5678', 25);
 
 --
 -- Índices para tabelas despejadas
@@ -320,49 +328,49 @@ ALTER TABLE `proprietario`
 -- AUTO_INCREMENT de tabela `aluguel`
 --
 ALTER TABLE `aluguel`
-  MODIFY `codaluguel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `codaluguel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de tabela `corretor`
 --
 ALTER TABLE `corretor`
-  MODIFY `idcorretor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idcorretor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `endereco`
 --
 ALTER TABLE `endereco`
-  MODIFY `idendereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idendereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de tabela `fiador`
 --
 ALTER TABLE `fiador`
-  MODIFY `idfiador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idfiador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT de tabela `imovel`
 --
 ALTER TABLE `imovel`
-  MODIFY `idimovel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idimovel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `inquilino`
 --
 ALTER TABLE `inquilino`
-  MODIFY `idinquilino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idinquilino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de tabela `midias`
 --
 ALTER TABLE `midias`
-  MODIFY `idmidida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idmidida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `proprietario`
 --
 ALTER TABLE `proprietario`
-  MODIFY `idproprietario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idproprietario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Restrições para despejos de tabelas
