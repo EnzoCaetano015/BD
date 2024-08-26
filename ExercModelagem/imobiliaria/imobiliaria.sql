@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Ago-2024 às 14:06
--- Versão do servidor: 10.4.27-MariaDB
--- versão do PHP: 8.0.25
+-- Tempo de geração: 26-Ago-2024 às 17:00
+-- Versão do servidor: 10.4.22-MariaDB
+-- versão do PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,7 +39,23 @@ CREATE TABLE `aluguel` (
   `idinquilino` int(11) DEFAULT NULL,
   `idcorretor` int(11) DEFAULT NULL,
   `idimovel` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `aluguel`
+--
+
+INSERT INTO `aluguel` (`codaluguel`, `datafim`, `datainicio`, `descricao`, `valor`, `vencimento`, `idinquilino`, `idcorretor`, `idimovel`) VALUES
+(1, '2024-12-31', '2024-01-01', 'Aluguel mensal de apartamento', 1200.00, '2024-05-05', 26, 6, 1),
+(2, '2024-08-31', '2024-02-01', 'Aluguel de casa com piscina', 2500.00, '2024-10-10', 27, 7, 2),
+(3, '2024-12-31', '2024-03-01', 'Aluguel de kitnet', 800.00, '0000-00-00', 28, 8, 3),
+(4, '2024-07-14', '2024-01-15', 'Cobertura com vista para o mar', 3500.00, '0000-00-00', 29, 9, 4),
+(5, '2025-03-31', '2024-04-01', 'Aluguel de chácara com amplo espaço', 3000.00, '0000-00-00', 30, 10, 5),
+(6, '2024-11-30', '2024-05-01', 'Studio moderno e compacto', 950.00, '2024-10-10', 31, 11, 6),
+(7, '2025-05-31', '2024-06-01', 'Sobrado com 7 cômodos', 4000.00, '2024-05-05', 32, 12, 7),
+(8, '2024-12-31', '2024-07-01', 'Casa com 5 cômodos', 2000.00, '0000-00-00', 33, 13, 8),
+(9, '2024-12-31', '2024-08-01', 'Apartamento compacto', 1100.00, '0000-00-00', 34, 14, 9),
+(10, '2025-08-31', '2024-09-01', 'Flat com todos os serviços inclusos', 1800.00, '0000-00-00', 35, 15, 10);
 
 -- --------------------------------------------------------
 
@@ -52,7 +68,7 @@ CREATE TABLE `corretor` (
   `email` varchar(255) NOT NULL,
   `telefone` varchar(255) DEFAULT NULL,
   `nome` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `corretor`
@@ -85,7 +101,7 @@ CREATE TABLE `endereco` (
   `bairro` varchar(255) NOT NULL,
   `complemento` varchar(255) DEFAULT NULL,
   `estado` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `endereco`
@@ -118,7 +134,7 @@ CREATE TABLE `fiador` (
   `nome` varchar(255) NOT NULL,
   `idendereco` int(11) DEFAULT NULL,
   `idinquilino` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `fiador`
@@ -156,7 +172,23 @@ CREATE TABLE `imovel` (
   `idmidida` int(11) DEFAULT NULL,
   `idproprietario` int(11) DEFAULT NULL,
   `idendereco` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `imovel`
+--
+
+INSERT INTO `imovel` (`idimovel`, `disponivel`, `area`, `suite`, `nbanheiros`, `tipo`, `garagem`, `lavanderia`, `piscina`, `comodos`, `idmidida`, `idproprietario`, `idendereco`) VALUES
+(1, b'0', '1', b'1', 2, 'Apartamento', b'1', b'1', b'0', 4, 6, 26, 16),
+(2, b'0', '1', b'1', 3, 'Casa', b'1', b'1', b'1', 6, 7, 27, 17),
+(3, b'0', '1', b'0', 1, 'Kitnet', b'0', b'1', b'0', 2, 8, 28, 18),
+(4, b'0', '1', b'1', 2, 'Cobertura', b'1', b'1', b'1', 4, 9, 29, 19),
+(5, b'0', '1', b'1', 3, 'Chácara', b'1', b'1', b'1', 8, 10, 30, 20),
+(6, b'0', '1', b'0', 1, 'Studio', b'0', b'0', b'0', 1, 11, 31, 21),
+(7, b'0', '1', b'1', 4, 'Sobrado', b'1', b'1', b'1', 7, 12, 32, 22),
+(8, b'0', '1', b'1', 3, 'Casa', b'1', b'1', b'0', 5, 13, 33, 23),
+(9, b'0', '1', b'0', 2, 'Apartamento', b'1', b'1', b'0', 3, 14, 34, 24),
+(10, b'0', '1', b'1', 2, 'Flat', b'1', b'1', b'1', 4, 15, 35, 25);
 
 -- --------------------------------------------------------
 
@@ -171,7 +203,7 @@ CREATE TABLE `inquilino` (
   `nome` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `cpf` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `inquilino`
@@ -198,7 +230,7 @@ INSERT INTO `inquilino` (`idinquilino`, `rg`, `telefone`, `nome`, `email`, `cpf`
 CREATE TABLE `midias` (
   `idmidida` int(11) NOT NULL,
   `midia` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `midias`
@@ -231,7 +263,7 @@ CREATE TABLE `proprietario` (
   `banco` varchar(255) DEFAULT NULL,
   `agencia` varchar(255) NOT NULL,
   `idendereco` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `proprietario`
