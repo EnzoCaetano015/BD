@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Ago-2024 às 17:00
--- Versão do servidor: 10.4.22-MariaDB
--- versão do PHP: 8.1.2
+-- Tempo de geração: 02/09/2024 às 00:51
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,7 +26,7 @@ USE `imobiliaria`;
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `aluguel`
+-- Estrutura para tabela `aluguel`
 --
 
 CREATE TABLE `aluguel` (
@@ -39,28 +39,28 @@ CREATE TABLE `aluguel` (
   `idinquilino` int(11) DEFAULT NULL,
   `idcorretor` int(11) DEFAULT NULL,
   `idimovel` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Extraindo dados da tabela `aluguel`
+-- Despejando dados para a tabela `aluguel`
 --
 
 INSERT INTO `aluguel` (`codaluguel`, `datafim`, `datainicio`, `descricao`, `valor`, `vencimento`, `idinquilino`, `idcorretor`, `idimovel`) VALUES
-(1, '2024-12-31', '2024-01-01', 'Aluguel mensal de apartamento', 1200.00, '2024-05-05', 26, 6, 1),
-(2, '2024-08-31', '2024-02-01', 'Aluguel de casa com piscina', 2500.00, '2024-10-10', 27, 7, 2),
-(3, '2024-12-31', '2024-03-01', 'Aluguel de kitnet', 800.00, '0000-00-00', 28, 8, 3),
-(4, '2024-07-14', '2024-01-15', 'Cobertura com vista para o mar', 3500.00, '0000-00-00', 29, 9, 4),
-(5, '2025-03-31', '2024-04-01', 'Aluguel de chácara com amplo espaço', 3000.00, '0000-00-00', 30, 10, 5),
-(6, '2024-11-30', '2024-05-01', 'Studio moderno e compacto', 950.00, '2024-10-10', 31, 11, 6),
-(7, '2025-05-31', '2024-06-01', 'Sobrado com 7 cômodos', 4000.00, '2024-05-05', 32, 12, 7),
-(8, '2024-12-31', '2024-07-01', 'Casa com 5 cômodos', 2000.00, '0000-00-00', 33, 13, 8),
-(9, '2024-12-31', '2024-08-01', 'Apartamento compacto', 1100.00, '0000-00-00', 34, 14, 9),
-(10, '2025-08-31', '2024-09-01', 'Flat com todos os serviços inclusos', 1800.00, '0000-00-00', 35, 15, 10);
+(1, '2024-12-31', '2024-01-01', 'Aluguel mensal de apartamento', 1404.00, '2024-05-05', 26, 6, 1),
+(2, '2024-08-31', '2024-02-01', 'Aluguel de casa com piscina', 2925.00, '2024-10-10', 27, 7, 2),
+(3, '2024-12-31', '2024-03-01', 'Aluguel de kitnet', 936.00, '0000-00-00', 28, 8, 3),
+(4, '2024-07-15', '2024-01-15', 'Cobertura com vista para o mar', 4095.00, '0000-00-00', 29, 9, 4),
+(5, '2025-03-31', '2024-04-01', 'Aluguel de chácara com amplo espaço', 3510.00, '0000-00-00', 30, 10, 5),
+(6, '2024-11-30', '2024-05-01', 'Studio moderno e compacto', 1111.50, '2024-10-10', 31, 11, 6),
+(7, '2025-05-31', '2024-06-01', 'Sobrado com 7 cômodos', 4680.00, '2024-05-05', 32, 12, 7),
+(8, '2024-12-31', '2024-07-01', 'Casa com 5 cômodos', 2340.00, '0000-00-00', 33, 13, 8),
+(9, '2024-12-31', '2024-08-01', 'Apartamento compacto', 1287.00, '0000-00-00', 34, 14, 9),
+(10, '2025-08-31', '2024-09-01', 'Flat com todos os serviços inclusos', 2106.00, '0000-00-00', 35, 15, 10);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `corretor`
+-- Estrutura para tabela `corretor`
 --
 
 CREATE TABLE `corretor` (
@@ -68,16 +68,16 @@ CREATE TABLE `corretor` (
   `email` varchar(255) NOT NULL,
   `telefone` varchar(255) DEFAULT NULL,
   `nome` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Extraindo dados da tabela `corretor`
+-- Despejando dados para a tabela `corretor`
 --
 
 INSERT INTO `corretor` (`idcorretor`, `email`, `telefone`, `nome`) VALUES
 (6, 'jorge.souza@example.com', '11 98765-4321', 'Jorge Souza'),
 (7, 'ana.santos@example.com', '21 99876-5432', 'Ana Santos'),
-(8, 'carlos.pereira@example.com', '31 97654-3210', 'Carlos Pereira'),
+(8, 'carmo.araujo@gmail.com', '31 97654-3210', 'Carlos Pereira'),
 (9, 'lucas.silva@example.com', '41 96543-2109', 'Lucas Silva'),
 (10, 'maria.oliveira@example.com', '51 95432-1098', 'Maria Oliveira'),
 (11, 'pedro.almeida@example.com', '61 94321-0987', 'Pedro Almeida'),
@@ -89,7 +89,7 @@ INSERT INTO `corretor` (`idcorretor`, `email`, `telefone`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `endereco`
+-- Estrutura para tabela `endereco`
 --
 
 CREATE TABLE `endereco` (
@@ -101,10 +101,10 @@ CREATE TABLE `endereco` (
   `bairro` varchar(255) NOT NULL,
   `complemento` varchar(255) DEFAULT NULL,
   `estado` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Extraindo dados da tabela `endereco`
+-- Despejando dados para a tabela `endereco`
 --
 
 INSERT INTO `endereco` (`idendereco`, `cidade`, `cep`, `numero`, `rua`, `bairro`, `complemento`, `estado`) VALUES
@@ -122,7 +122,7 @@ INSERT INTO `endereco` (`idendereco`, `cidade`, `cep`, `numero`, `rua`, `bairro`
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `fiador`
+-- Estrutura para tabela `fiador`
 --
 
 CREATE TABLE `fiador` (
@@ -134,10 +134,10 @@ CREATE TABLE `fiador` (
   `nome` varchar(255) NOT NULL,
   `idendereco` int(11) DEFAULT NULL,
   `idinquilino` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Extraindo dados da tabela `fiador`
+-- Despejando dados para a tabela `fiador`
 --
 
 INSERT INTO `fiador` (`idfiador`, `email`, `telefone`, `rg`, `cpf`, `nome`, `idendereco`, `idinquilino`) VALUES
@@ -155,7 +155,7 @@ INSERT INTO `fiador` (`idfiador`, `email`, `telefone`, `rg`, `cpf`, `nome`, `ide
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `imovel`
+-- Estrutura para tabela `imovel`
 --
 
 CREATE TABLE `imovel` (
@@ -171,29 +171,30 @@ CREATE TABLE `imovel` (
   `comodos` int(1) NOT NULL,
   `idmidida` int(11) DEFAULT NULL,
   `idproprietario` int(11) DEFAULT NULL,
-  `idendereco` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `idendereco` int(11) DEFAULT NULL,
+  `Quintal` bit(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Extraindo dados da tabela `imovel`
+-- Despejando dados para a tabela `imovel`
 --
 
-INSERT INTO `imovel` (`idimovel`, `disponivel`, `area`, `suite`, `nbanheiros`, `tipo`, `garagem`, `lavanderia`, `piscina`, `comodos`, `idmidida`, `idproprietario`, `idendereco`) VALUES
-(1, b'0', '1', b'1', 2, 'Apartamento', b'1', b'1', b'0', 4, 6, 26, 16),
-(2, b'0', '1', b'1', 3, 'Casa', b'1', b'1', b'1', 6, 7, 27, 17),
-(3, b'0', '1', b'0', 1, 'Kitnet', b'0', b'1', b'0', 2, 8, 28, 18),
-(4, b'0', '1', b'1', 2, 'Cobertura', b'1', b'1', b'1', 4, 9, 29, 19),
-(5, b'0', '1', b'1', 3, 'Chácara', b'1', b'1', b'1', 8, 10, 30, 20),
-(6, b'0', '1', b'0', 1, 'Studio', b'0', b'0', b'0', 1, 11, 31, 21),
-(7, b'0', '1', b'1', 4, 'Sobrado', b'1', b'1', b'1', 7, 12, 32, 22),
-(8, b'0', '1', b'1', 3, 'Casa', b'1', b'1', b'0', 5, 13, 33, 23),
-(9, b'0', '1', b'0', 2, 'Apartamento', b'1', b'1', b'0', 3, 14, 34, 24),
-(10, b'0', '1', b'1', 2, 'Flat', b'1', b'1', b'1', 4, 15, 35, 25);
+INSERT INTO `imovel` (`idimovel`, `disponivel`, `area`, `suite`, `nbanheiros`, `tipo`, `garagem`, `lavanderia`, `piscina`, `comodos`, `idmidida`, `idproprietario`, `idendereco`, `Quintal`) VALUES
+(1, b'1', '1', b'1', 2, 'Apartamento', b'1', b'1', b'0', 4, 6, 26, 16, b'1'),
+(2, b'1', '1', b'1', 3, 'Casa', b'1', b'1', b'1', 6, 7, 27, 17, b'0'),
+(3, b'0', '1', b'0', 2, 'Kitnet', b'0', b'1', b'0', 2, 8, 28, 18, b'1'),
+(4, b'0', '1', b'1', 2, 'Cobertura', b'1', b'1', b'1', 4, 9, 29, 19, b'0'),
+(5, b'0', '1', b'1', 3, 'Chácara', b'1', b'1', b'1', 8, 10, 30, 20, b'1'),
+(6, b'1', '1', b'0', 1, 'Studio', b'0', b'0', b'0', 1, 11, 31, 21, b'1'),
+(7, b'1', '1', b'1', 4, 'Sobrado', b'1', b'1', b'1', 7, 12, 32, 22, b'0'),
+(8, b'0', '1', b'1', 3, 'Casa', b'1', b'1', b'0', 5, 13, 33, 23, b'1'),
+(9, b'0', '1', b'0', 2, 'Apartamento', b'1', b'1', b'0', 3, 14, 34, 24, b'0'),
+(10, b'1', '1', b'1', 2, 'Flat', b'1', b'1', b'1', 4, 15, 35, 25, b'1');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `inquilino`
+-- Estrutura para tabela `inquilino`
 --
 
 CREATE TABLE `inquilino` (
@@ -202,38 +203,40 @@ CREATE TABLE `inquilino` (
   `telefone` varchar(255) DEFAULT NULL,
   `nome` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `cpf` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `cpf` varchar(255) NOT NULL,
+  `Salario` decimal(7,2) DEFAULT NULL,
+  `DataNasc` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Extraindo dados da tabela `inquilino`
+-- Despejando dados para a tabela `inquilino`
 --
 
-INSERT INTO `inquilino` (`idinquilino`, `rg`, `telefone`, `nome`, `email`, `cpf`) VALUES
-(26, '123456789', '11 98765-4321', 'Maria Oliveira', 'maria.oliveira@example.com', '123.456.789-09'),
-(27, '987654321', '21 99876-5432', 'Carlos Pereira', 'carlos.pereira@example.com', '987.654.321-05'),
-(28, '112233445', '31 97654-3210', 'Fernanda Costa', 'fernanda.costa@example.com', '321.654.987-05'),
-(29, '556677889', '41 96543-2109', 'Roberto Lima', 'roberto.lima@example.com', '654.321.987-05'),
-(30, '667788990', '51 95432-1098', 'Beatriz Silva', 'beatriz.silva@example.com', '987.321.654-05'),
-(31, '778899001', '61 94321-0987', 'Felipe Almeida', 'felipe.almeida@example.com', '321.987.654-05'),
-(32, '889900112', '71 93210-9876', 'Juliana Santos', 'juliana.santos@example.com', '654.987.321-04'),
-(33, '990011223', '81 92109-8765', 'Daniel Costa', 'daniel.costa@example.com', '987.654.321-00'),
-(34, '100112233', '91 91098-7654', 'Isabela Silva', 'isabela.silva@example.com', '321.654.987-09'),
-(35, '211223344', '11 89987-6543', 'Gabriel Santos', 'gabriel.santos@example.com', '654.987.321-05');
+INSERT INTO `inquilino` (`idinquilino`, `rg`, `telefone`, `nome`, `email`, `cpf`, `Salario`, `DataNasc`) VALUES
+(26, '123456789', '11 98765-4321', 'Maria Oliveira', 'maria.oliveira@example.com', '123.456.789-09', 3500.50, '1990-05-12'),
+(27, '987654321', '21 99876-5432', 'Carlos Pereira', 'carlos.pereira@example.com', '987.654.321-05', 4200.75, '1985-11-23'),
+(28, '112233445', '31 97654-3210', 'Fernanda Costa', 'fernanda.costa@example.com', '321.654.987-05', 2800.00, '1992-08-14'),
+(29, '556677889', '41 96543-2109', 'Roberto Lima', 'roberto.lima@example.com', '654.321.987-05', 5000.20, '1980-03-30'),
+(30, '667788990', '51 95432-1098', 'Beatriz Silva', 'beatriz.silva@example.com', '987.321.654-05', 3100.85, '1988-01-06'),
+(31, '778899001', '61 94321-0987', 'Felipe Almeida', 'felipe.almeida@example.com', '321.987.654-05', 4500.90, '1991-07-22'),
+(32, '889900112', '71 93210-9876', 'Juliana Santos', 'juliana.santos@example.com', '654.987.321-04', 3300.25, '1987-10-10'),
+(33, '990011223', '81 92109-8765', 'Daniel Costa', 'daniel.costa@example.com', '987.654.321-00', 2900.40, '1993-12-17'),
+(34, '100112233', '91 91098-7654', 'Isabela Silva', 'isabela.silva@example.com', '321.654.987-09', 4700.65, '1982-09-05'),
+(35, '211223344', '11 89987-6543', 'Gabriel Santos', 'gabriel.santos@example.com', '654.987.321-05', 3850.30, '1989-04-28');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `midias`
+-- Estrutura para tabela `midias`
 --
 
 CREATE TABLE `midias` (
   `idmidida` int(11) NOT NULL,
   `midia` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Extraindo dados da tabela `midias`
+-- Despejando dados para a tabela `midias`
 --
 
 INSERT INTO `midias` (`idmidida`, `midia`) VALUES
@@ -251,7 +254,7 @@ INSERT INTO `midias` (`idmidida`, `midia`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `proprietario`
+-- Estrutura para tabela `proprietario`
 --
 
 CREATE TABLE `proprietario` (
@@ -263,22 +266,22 @@ CREATE TABLE `proprietario` (
   `banco` varchar(255) DEFAULT NULL,
   `agencia` varchar(255) NOT NULL,
   `idendereco` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Extraindo dados da tabela `proprietario`
+-- Despejando dados para a tabela `proprietario`
 --
 
 INSERT INTO `proprietario` (`idproprietario`, `email`, `telefone`, `nome`, `pix`, `banco`, `agencia`, `idendereco`) VALUES
 (26, 'joao.silva@example.com', '11 98765-4321', 'João Silva', 'pixjoao123', 'Banco do Brasil', '1234', 16),
-(27, 'maria.oliveira@example.com', '21 99876-5432', 'Maria Oliveira', 'pixmaria456', 'Itaú', '5678', 17),
-(28, 'pedro.almeida@example.com', '31 97654-3210', 'Pedro Almeida', 'pixpedro789', 'Santander', '9101', 18),
-(29, 'ana.santos@example.com', '41 96543-2109', 'Ana Santos', 'pixana234', 'Caixa Econômica', '1122', 19),
-(30, 'carlos.pereira@example.com', '51 95432-1098', 'Carlos Pereira', 'pixcarlos567', 'Bradesco', '3344', 20),
-(31, 'julia.martins@example.com', '61 94321-0987', 'Júlia Martins', 'pixjulia678', 'HSBC', '5566', 21),
-(32, 'beatriz.costa@example.com', '71 93210-9876', 'Beatriz Costa', 'pixbeatriz789', 'Banrisul', '7788', 22),
-(33, 'ricardo.lima@example.com', '81 92109-8765', 'Ricardo Lima', 'pixricardo890', 'Sicredi', '9900', 23),
-(34, 'mariana.rocha@example.com', '91 91098-7654', 'Mariana Rocha', 'pixmariana901', 'Banco do Nordeste', '1234', 24),
+(27, 'maria.oliveira@example.com', '11 99876-5432', 'Maria Oliveira', 'pixmaria456', 'Itaú', '5678', 17),
+(28, 'pedro.almeida@example.com', '11 97654-3210', 'Pedro Almeida', 'pixpedro789', 'Santander', '9101', 18),
+(29, 'ana.santos@example.com', '11 96543-2109', 'Ana Santos', 'pixana234', 'Caixa Econômica', '1122', 19),
+(30, 'carlos.pereira@example.com', '11 95432-1098', 'Carlos Pereira', 'pixcarlos567', 'Bradesco', '3344', 20),
+(31, 'julia.martins@example.com', '11 94321-0987', 'Júlia Martins', 'pixjulia678', 'HSBC', '5566', 21),
+(32, 'beatriz.costa@example.com', '11 93210-9876', 'Beatriz Costa', 'pixbeatriz789', 'Banrisul', '7788', 22),
+(33, 'ricardo.lima@example.com', '11 92109-8765', 'Ricardo Lima', 'pixricardo890', 'Sicredi', '9900', 23),
+(34, 'mariana.rocha@example.com', '11 91098-7654', 'Mariana Rocha', 'pixmariana901', 'Banco do Nordeste', '1234', 24),
 (35, 'tiago.fernandes@example.com', '11 89987-6543', 'Tiago Fernandes', 'pixtiago012', 'Banco da Amazônia', '5678', 25);
 
 --
@@ -286,7 +289,7 @@ INSERT INTO `proprietario` (`idproprietario`, `email`, `telefone`, `nome`, `pix`
 --
 
 --
--- Índices para tabela `aluguel`
+-- Índices de tabela `aluguel`
 --
 ALTER TABLE `aluguel`
   ADD PRIMARY KEY (`codaluguel`),
@@ -295,21 +298,21 @@ ALTER TABLE `aluguel`
   ADD KEY `idimovel` (`idimovel`);
 
 --
--- Índices para tabela `corretor`
+-- Índices de tabela `corretor`
 --
 ALTER TABLE `corretor`
   ADD PRIMARY KEY (`idcorretor`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Índices para tabela `endereco`
+-- Índices de tabela `endereco`
 --
 ALTER TABLE `endereco`
   ADD PRIMARY KEY (`idendereco`),
   ADD UNIQUE KEY `cep` (`cep`);
 
 --
--- Índices para tabela `fiador`
+-- Índices de tabela `fiador`
 --
 ALTER TABLE `fiador`
   ADD PRIMARY KEY (`idfiador`),
@@ -320,7 +323,7 @@ ALTER TABLE `fiador`
   ADD KEY `idinquilino` (`idinquilino`);
 
 --
--- Índices para tabela `imovel`
+-- Índices de tabela `imovel`
 --
 ALTER TABLE `imovel`
   ADD PRIMARY KEY (`idimovel`),
@@ -329,7 +332,7 @@ ALTER TABLE `imovel`
   ADD KEY `idmidida` (`idmidida`);
 
 --
--- Índices para tabela `inquilino`
+-- Índices de tabela `inquilino`
 --
 ALTER TABLE `inquilino`
   ADD PRIMARY KEY (`idinquilino`),
@@ -338,13 +341,13 @@ ALTER TABLE `inquilino`
   ADD UNIQUE KEY `rg` (`rg`);
 
 --
--- Índices para tabela `midias`
+-- Índices de tabela `midias`
 --
 ALTER TABLE `midias`
   ADD PRIMARY KEY (`idmidida`);
 
 --
--- Índices para tabela `proprietario`
+-- Índices de tabela `proprietario`
 --
 ALTER TABLE `proprietario`
   ADD PRIMARY KEY (`idproprietario`),
@@ -353,7 +356,7 @@ ALTER TABLE `proprietario`
   ADD KEY `idendereco` (`idendereco`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
@@ -405,11 +408,11 @@ ALTER TABLE `proprietario`
   MODIFY `idproprietario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- Restrições para despejos de tabelas
+-- Restrições para tabelas despejadas
 --
 
 --
--- Limitadores para a tabela `aluguel`
+-- Restrições para tabelas `aluguel`
 --
 ALTER TABLE `aluguel`
   ADD CONSTRAINT `aluguel_ibfk_1` FOREIGN KEY (`idinquilino`) REFERENCES `inquilino` (`idinquilino`),
@@ -417,14 +420,14 @@ ALTER TABLE `aluguel`
   ADD CONSTRAINT `aluguel_ibfk_3` FOREIGN KEY (`idimovel`) REFERENCES `imovel` (`idimovel`);
 
 --
--- Limitadores para a tabela `fiador`
+-- Restrições para tabelas `fiador`
 --
 ALTER TABLE `fiador`
   ADD CONSTRAINT `fiador_ibfk_1` FOREIGN KEY (`idendereco`) REFERENCES `endereco` (`idendereco`),
   ADD CONSTRAINT `fiador_ibfk_2` FOREIGN KEY (`idinquilino`) REFERENCES `inquilino` (`idinquilino`);
 
 --
--- Limitadores para a tabela `imovel`
+-- Restrições para tabelas `imovel`
 --
 ALTER TABLE `imovel`
   ADD CONSTRAINT `imovel_ibfk_1` FOREIGN KEY (`idproprietario`) REFERENCES `proprietario` (`idproprietario`),
@@ -432,7 +435,7 @@ ALTER TABLE `imovel`
   ADD CONSTRAINT `imovel_ibfk_3` FOREIGN KEY (`idmidida`) REFERENCES `midias` (`idmidida`);
 
 --
--- Limitadores para a tabela `proprietario`
+-- Restrições para tabelas `proprietario`
 --
 ALTER TABLE `proprietario`
   ADD CONSTRAINT `proprietario_ibfk_1` FOREIGN KEY (`idendereco`) REFERENCES `endereco` (`idendereco`);
